@@ -8,365 +8,337 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    background:#0b0b0b;
+    color:#fff;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
 }
 
-body {
-    background: #0b0b0b;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+h1,h2,h3{
+    font-family:'Playfair Display',serif;
 }
 
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-section {
-    padding: 80px 0;
+section{
+    padding:100px 0;
 }
 
 /* NAV */
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(12px);
+    z-index:1000;
 }
 
-nav .container {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0;
+nav .container{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:14px;
+    transition:.3s;
 }
 
-nav a:hover {
-    color: #e50914;
+nav a:hover{
+    color:#ff2a2a;
 }
 
 /* HERO */
-.hero {
-    height: 100vh;
-    background: url('IMG_8616.jpeg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    text-align: center;
+.hero{
+    height:80vh;
+    display:flex;
+    align-items:center;
+    text-align:center;
 }
 
-.hero-overlay {
-    background: rgba(0,0,0,0.7);
-    padding: 40px;
-    width: 100%;
+.hero h1{
+    font-size:52px;
+    margin-bottom:20px;
 }
 
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+.hero p{
+    color:#aaa;
+    font-size:18px;
+    margin-bottom:30px;
 }
 
-.hero p {
-    font-size: 18px;
-    color: #ccc;
-    margin-bottom: 30px;
+/* BUTTON */
+.btn{
+    background:#e50914;
+    padding:16px 32px;
+    border-radius:6px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 0 0 rgba(229,9,20,0.6);
 }
 
-.btn {
-    background: #e50914;
-    padding: 14px 28px;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: 0.3s;
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(229,9,20,0.5);
 }
 
-.btn:hover {
-    background: #ff1f2e;
+/* FLOAT BUTTON */
+.float-call{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#e50914;
+    padding:14px 20px;
+    border-radius:50px;
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    z-index:999;
+    box-shadow:0 10px 30px rgba(229,9,20,0.6);
 }
 
-/* TRUST BAR */
-.trust {
-    background: #111;
-    text-align: center;
-    font-size: 14px;
+/* IMAGE PARALLAX */
+.hero-image{
+    height:70vh;
+    background:url('IMG_8616.jpeg') center/cover fixed;
 }
 
-.trust span {
-    margin: 0 15px;
+/* TRUST */
+.trust{
+    background:#111;
+    text-align:center;
+    font-size:14px;
 }
 
-/* SERVICES */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
+/* CARDS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
 
-.card {
-    background: #111;
-    padding: 25px;
-    border-radius: 8px;
-    transition: 0.3s;
+.card{
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    transition:.4s;
+    opacity:0;
+    transform:translateY(40px);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(229,9,20,0.2);
+.card.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.card h3 {
-    margin-bottom: 10px;
-}
-
-/* WHY */
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(229,9,20,0.25);
 }
 
 /* REVIEWS */
-.review {
-    background: #111;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+.review{
+    background:#111;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:20px;
 }
 
 /* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 15px;
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
 }
 
-.gallery img {
-    width: 100%;
-    border-radius: 6px;
+.gallery img{
+    width:100%;
+    border-radius:8px;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
 }
 
 /* BEFORE AFTER */
-.before-after {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.before-after{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
-.before-after img {
-    width: 100%;
-    border-radius: 6px;
+.before-after img{
+    width:100%;
+    border-radius:10px;
 }
 
 /* CTA */
-.cta {
-    text-align: center;
-    background: #111;
+.cta{
+    text-align:center;
+    background:linear-gradient(180deg,#111,#0b0b0b);
 }
 
-/* CONTACT */
-.contact {
-    text-align: center;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    color: #888;
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    color:#777;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .before-after {
-        grid-template-columns: 1fr;
-    }
+    .hero h1{font-size:34px}
+    .before-after{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
+<a href="tel:7758827400" class="float-call">Call Now</a>
+
 <nav>
-    <div class="container">
-        <strong>408 Detailing</strong>
-        <div>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#contact">Book</a>
-        </div>
-    </div>
+<div class="container">
+<strong>408 Detailing</strong>
+<div>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Book</a>
+</div>
+</div>
 </nav>
 
 <section class="hero">
-    <div class="hero-overlay">
-        <h1>Luxury-Level Detailing That Brings Your Car Back to Life</h1>
-        <p>Precision detailing, long-lasting protection, and results you can see immediately.</p>
-        <a href="tel:7758827400" class="btn">Call Now</a>
-    </div>
+<div class="container">
+<h1>Precision Detailing. Showroom-Level Results.</h1>
+<p>Your vehicle deserves more than a basic clean — we deliver a full transformation.</p>
+<a href="tel:7758827400" class="btn">Book Now</a>
+</div>
 </section>
 
+<section class="hero-image"></section>
+
 <section class="trust">
-    <div class="container">
-        <span>⭐ 5-Star Rated</span>
-        <span>Serving Local Area</span>
-        <span>100+ Vehicles Detailed</span>
-        <span>Fully Equipped & Professional</span>
-    </div>
+<div class="container">
+⭐ 5-Star Rated • Serving Local Area • 100+ Vehicles Detailed • Professional Results
+</div>
 </section>
 
 <section id="services">
-    <div class="container">
-        <h2>Premium Detailing Services</h2>
-        <br>
-        <div class="services-grid">
-            <div class="card">
-                <h3>Interior Deep Cleaning</h3>
-                <p>Steam cleaning, shampooing, and full interior restoration that leaves your vehicle spotless and refreshed.</p>
-            </div>
-            <div class="card">
-                <h3>Exterior Perfection</h3>
-                <p>Hand wash, clay bar, and paint enhancement to restore shine and remove contaminants.</p>
-            </div>
-            <div class="card">
-                <h3>Ceramic Coatings</h3>
-                <p>Long-lasting protection that keeps your vehicle looking glossy and protected for months.</p>
-            </div>
-            <div class="card">
-                <h3>Detailing Packages</h3>
-                <p>Complete inside-out transformations designed to make your car look better than ever.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <h2>Why Choose 408 Detailing</h2>
-        <br>
-        <div class="why-grid">
-            <div class="card">
-                <h3>Attention to Detail</h3>
-                <p>Every inch is carefully cleaned and restored with precision and care.</p>
-            </div>
-            <div class="card">
-                <h3>Reliable & Flexible</h3>
-                <p>Easy scheduling and dependable service that works around your needs.</p>
-            </div>
-            <div class="card">
-                <h3>Professional Results</h3>
-                <p>We focus on long-lasting quality, not rushed jobs.</p>
-            </div>
-            <div class="card">
-                <h3>Customer First</h3>
-                <p>Your satisfaction is the priority — every time.</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<h2>Premium Services</h2><br>
+<div class="grid">
+<div class="card"><h3>Interior Restoration</h3><p>Deep cleaning that removes stains, odors, and restores freshness.</p></div>
+<div class="card"><h3>Exterior Enhancement</h3><p>Gloss, protection, and paint correction that turns heads.</p></div>
+<div class="card"><h3>Ceramic Coating</h3><p>Durable shine and protection that lasts.</p></div>
+<div class="card"><h3>Full Detail Packages</h3><p>Complete transformations inside and out.</p></div>
+</div>
+</div>
 </section>
 
 <section id="about">
-    <div class="container">
-        <h2>About 408 Detailing</h2>
-        <br>
-        <p>
-        408 Detailing is built on precision, care, and a commitment to delivering high-end results. Every vehicle is treated with the same level of attention and dedication, ensuring a finish that stands out.
-        </p>
-    </div>
+<div class="container">
+<h2>Built on Precision</h2><br>
+<p>
+408 Detailing is committed to delivering elite-level detailing with unmatched care. Every vehicle is treated like a showpiece — with results that speak for themselves.
+</p>
+</div>
 </section>
 
 <section id="reviews">
-    <div class="container">
-        <h2>What Clients Are Saying</h2>
-        <br>
+<div class="container">
+<h2>Client Experience</h2><br>
 
-        <div class="review">
-            <p>"Very professional work, done with care and dedication. Highly recommend for any detailing needs."</p>
-            <strong>- Viridiana A.</strong>
-        </div>
+<div class="review">
+"Very professional work, done with care and dedication."
+<br><strong>- Viridiana A.</strong>
+</div>
 
-        <div class="review">
-            <p>"Great job, very responsive and flexible. You can tell they truly care."</p>
-            <strong>- Thomas H.</strong>
-        </div>
+<div class="review">
+"Very responsive and flexible. You can tell they truly care."
+<br><strong>- Thomas H.</strong>
+</div>
 
-    </div>
+</div>
 </section>
 
 <section>
-    <div class="container">
-        <h2>Before & After</h2>
-        <br>
-        <div class="before-after">
-            <img src="IMG_8614.jpeg" alt="Before">
-            <img src="IMG_8615.jpeg" alt="After">
-        </div>
-    </div>
+<div class="container">
+<h2>Before & After</h2><br>
+<div class="before-after">
+<img src="IMG_8614.jpeg">
+<img src="IMG_8615.jpeg">
+</div>
+</div>
 </section>
 
 <section>
-    <div class="container">
-        <h2>Our Work</h2>
-        <br>
-        <div class="gallery">
-            <img src="IMG_8617.jpeg">
-            <img src="IMG_8618.jpeg">
-            <img src="IMG_8620.jpeg">
-            <img src="IMG_8621.jpeg">
-        </div>
-    </div>
+<div class="container">
+<h2>Our Work</h2><br>
+<div class="gallery">
+<img src="IMG_8617.jpeg">
+<img src="IMG_8618.jpeg">
+<img src="IMG_8620.jpeg">
+<img src="IMG_8621.jpeg">
+</div>
+</div>
 </section>
 
 <section class="cta">
-    <div class="container">
-        <h2>Book Your Detail Today</h2>
-        <p>Appointments fill quickly. Secure your spot now.</p>
-        <br>
-        <a href="tel:7758827400" class="btn">Call Now</a>
-    </div>
+<div class="container">
+<h2>Book Your Detail Today</h2>
+<p>Spots fill fast — don’t wait.</p><br>
+<a href="tel:7758827400" class="btn">Call Now</a>
+</div>
 </section>
 
-<section id="contact" class="contact">
-    <div class="container">
-        <h2>Get In Touch</h2>
-        <p>Call or text to book your appointment.</p>
-        <br>
-        <a href="tel:7758827400" class="btn">775-882-7400</a>
-    </div>
+<section id="contact">
+<div class="container" style="text-align:center;">
+<h2>Contact</h2>
+<p>Call or text to schedule your detail.</p><br>
+<a href="tel:7758827400" class="btn">775-882-7400</a>
+</div>
 </section>
 
 <footer>
-    © 2026 408 Detailing. All Rights Reserved.
+© 2026 408 Detailing
 </footer>
 
 <script>
-// smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+// SCROLL ANIMATION
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+    const trigger = window.innerHeight * 0.85;
+    cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < trigger){
+            card.classList.add('show');
+        }
+    });
+});
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+    anchor.addEventListener('click',function(e){
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+            behavior:'smooth'
         });
     });
 });
